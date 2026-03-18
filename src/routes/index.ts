@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { lazy } from "react";
 
-const Login = lazy(() => import("@/features/auth/login"));
+const LoginPage = lazy(() => import("@/features/auth/login"));
 const Register = lazy(() => import("@/features/auth/register"));
 const Home = lazy(() => import("@/features/home"));
 
@@ -15,7 +15,7 @@ const Routes = createBrowserRouter([
     children: [
       {
         path: "login",
-        Component: Login,
+        Component: LoginPage,
       },
       {
         path: "register",
