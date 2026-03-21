@@ -6,6 +6,9 @@ const Register = lazy(() => import("@/features/auth/register"));
 const Home = lazy(() => import("@/features/home"));
 const SellerDashboard = lazy(() => import("@/features/seller/dashboard"));
 const SellerProduct = lazy(() => import("@/features/seller/product"));
+const SellerCreateProduct = lazy(
+  () => import("@/features/seller/product/create-product"),
+);
 
 const Routes = createBrowserRouter([
   {
@@ -35,6 +38,10 @@ const Routes = createBrowserRouter([
       {
         path: "product",
         Component: SellerProduct,
+      },
+      {
+        path: "product/new",
+        Component: SellerCreateProduct,
       },
     ],
   },
