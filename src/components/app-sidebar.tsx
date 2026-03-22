@@ -54,28 +54,23 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar className="" {...props}>
+    <Sidebar {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
-                {/*<div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <HugeiconsIcon
-                    icon={CommandIcon}
-                    strokeWidth={2}
-                    className="size-4"
-                  />
-                </div>*/}
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Maid Marketplace</span>
+                  <span className="truncate font-bold text-center datatype-type-font text-xl">
+                    MaidMarketplace
+                  </span>
                 </div>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="p-3">
         <NavMain items={data.navMain} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>

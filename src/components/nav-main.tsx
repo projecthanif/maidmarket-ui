@@ -37,15 +37,15 @@ export function NavMain({
 }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>{title}</SidebarGroupLabel>
+      <SidebarGroupLabel className="hidden">{title}</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip={item.title}>
-                <a href={item.url}>
+                <a href={item.url} className="py-5 pr-10">
                   {item.icon}
-                  <span>{item.title}</span>
+                  <span className="text-lg">{item.title}</span>
                 </a>
               </SidebarMenuButton>
               {item.items?.length ? (
