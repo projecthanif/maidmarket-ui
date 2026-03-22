@@ -8,8 +8,6 @@ import {
   CheckCircle2,
   Search,
   ShieldCheck,
-  UserCheck,
-  Star,
   Menu,
   X,
   MapPin,
