@@ -53,6 +53,8 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const AppName = import.meta.env.VITE_APP_NAME;
+
   return (
     <Sidebar {...props}>
       <SidebarHeader>
@@ -62,7 +64,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <a href="#">
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-bold text-center datatype-type-font text-xl">
-                    MaidMarketplace
+                    {AppName}
                   </span>
                 </div>
               </a>

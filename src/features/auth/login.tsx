@@ -1,6 +1,7 @@
 import { LoginForm } from "@/components/login-form";
 
 export default function LoginPage() {
+  const AppName = import.meta.env.VITE_APP_NAME;
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
@@ -11,7 +12,7 @@ export default function LoginPage() {
               alt="MaidMarketplace logo"
               className="w-20 h-20 object-contain"
             />
-            MaidMarketplace
+            {AppName}
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">

@@ -18,7 +18,7 @@ export default function SellerDashboardLayout({
   const announcement = false;
 
   return (
-    <div className="[--header-height:calc(--spacing(10))]">
+    <div className="[--header-height:calc(--spacing(14))]">
       <SidebarProvider className="flex flex-col">
         <div className="flex flex-1">
           <AppSidebar />

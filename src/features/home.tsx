@@ -27,6 +27,8 @@ export default function Home() {
     { name: "Lifestyle", icon: <Tag className="w-5 h-5" />, count: 96 },
   ];
 
+  const AppName = import.meta.env.VITE_APP_NAME;
+
   return (
     <AppLayout>
       <div className="flex flex-col min-h-screen">
@@ -35,7 +37,7 @@ export default function Home() {
           <div className="container mx-auto flex h-16 items-center px-4 md:px-6 justify-between">
             <div className="flex items-center gap-6 flex-1">
               <Link to="/" className="flex items-center space-x-2">
-                <span className="font-bold text-xl">MaidMarketplace</span>
+                <span className="font-bold text-xl">{AppName}</span>
               </Link>
 
               <div className="hidden md:flex flex-1 max-w-md relative">
@@ -345,10 +347,9 @@ export default function Home() {
         <footer className="py-10 bg-background border-t">
           <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col items-center md:items-start">
-              <span className="font-bold text-lg mb-1">MaidMarketplace</span>
+              <span className="font-bold text-lg mb-1">{AppName}</span>
               <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} MaidMarketplace. All rights
-                reserved.
+                © {new Date().getFullYear()} {AppName}. All rights reserved.
               </p>
             </div>
             <div className="flex gap-6">
