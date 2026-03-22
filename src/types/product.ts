@@ -22,4 +22,5 @@ export interface Product {
   images: ProductImage[];
   videos?: ProductVideo[];
   category: ProductCategory;
+  tags?: string[];
 }

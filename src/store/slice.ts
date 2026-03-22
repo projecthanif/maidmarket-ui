@@ -5,7 +5,10 @@ import {
   type TypedUseSelectorHook,
 } from "react-redux";
 
-const combinedReducers = combineReducers({});
+const combinedReducers = combineReducers({
+  // Provide a dummy reducer to satisfy combineReducers requirement
+  _init: (state = null) => state,
+});
 
 export const store = configureStore({
   reducer: combinedReducers,

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -39,12 +40,12 @@ export function SiteHeader({ breadcrumb }: SiteHeaderProps) {
         <Breadcrumb className="hidden sm:block">
           <BreadcrumbList>
             {breadcrumb?.map((item, index) => (
-              <>
-                <BreadcrumbItem key={index}>
+              <React.Fragment key={index}>
+                <BreadcrumbItem>
                   <BreadcrumbLink href={item.url}>{item.title}</BreadcrumbLink>
                 </BreadcrumbItem>
                 {index < breadcrumb.length - 1 && <BreadcrumbSeparator />}
-              </>
+              </React.Fragment>
             ))}
           </BreadcrumbList>
         </Breadcrumb>
