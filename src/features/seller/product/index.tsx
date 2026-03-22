@@ -8,7 +8,7 @@ export default function SellerProductPage() {
   const navigate = useNavigate();
   const breadcrumb = [
     { title: "Dashboard", url: "/seller/dashboard" },
-    { title: "Product", url: "/seller/product" },
+    { title: "Product", url: "#" },
   ];
   return (
     <SellerDashboardLayout breadcrumb={breadcrumb}>

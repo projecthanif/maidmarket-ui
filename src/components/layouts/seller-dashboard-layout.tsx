@@ -20,10 +20,10 @@ export default function SellerDashboardLayout({
   return (
     <div className="[--header-height:calc(--spacing(14))]">
       <SidebarProvider className="flex flex-col">
-        <SiteHeader breadcrumb={breadcrumb} />
         <div className="flex flex-1">
           <AppSidebar />
           <SidebarInset>
+            <SiteHeader breadcrumb={breadcrumb} />
             {announcement && (
               <div className="w-full overflow-hidden whitespace-nowrap bg-muted/50 py-1">
                 <div className="animate-marquee inline-block text-sm font-medium text-bold text-red-600 ">

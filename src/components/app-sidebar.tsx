@@ -16,7 +16,6 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ChartRingIcon,
   SentIcon,
-  CommandIcon,
   ProductLoadingIcon,
   DashboardBrowsingIcon,
 } from "@hugeicons/core-free-icons";
@@ -55,22 +54,19 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar
-      className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
-      {...props}
-    >
+    <Sidebar className="" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                {/*<div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                   <HugeiconsIcon
                     icon={CommandIcon}
                     strokeWidth={2}
                     className="size-4"
                   />
-                </div>
+                </div>*/}
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">Maid Marketplace</span>
                 </div>
