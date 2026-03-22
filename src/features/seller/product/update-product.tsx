@@ -1,22 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-
+import { Link, useParams, useNavigate } from "react-router-dom";
 import SellerDashboardLayout from "@/components/layouts/seller-dashboard-layout";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
+import { products } from "@/app/dummy/products";
+import { productSchema, type ProductFormValues } from "@/types/product-schema";
 import { ProductDetails } from "./components/product-details";
 import { MediaUpload } from "./components/media-upload";
 import { PricingInfo } from "./components/pricing-info";
 import { OrganizationSettings } from "./components/organization-settings";
-import { productSchema, type ProductFormValues } from "@/types/product-schema";
 
-export default function CreateProduct() {
+export default function UpdateProduct() {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+
   const breadcrumb = [
     { title: "Dashboard", url: "/seller/dashboard" },
     { title: "Product", url: "/seller/product" },
-    { title: "New Product", url: "#" },
+    { title: "Update Product", url: "#" },
   ];
 
   const [files, setFiles] = useState<File[]>([]);
@@ -68,9 +71,32 @@ export default function CreateProduct() {
       description: "",
       price: 0,
       category: "",
+      productState: "",
       status: "active",
     },
   });
+
+  useEffect(() => {
+    if (id) {
+      const product = products.find((p) => p.id === id);
+      if (product) {
+        form.reset({
+          title: product.title,
+          description: product.description,
+          price: product.price,
+          category: product.category.name.toLowerCase(),
+          productState: "new",
+          status: "active",
+        });
+
+        if (product.images) {
+          setPreviews(product.images.map((img) => img.url));
+        }
+      } else {
+        navigate("/seller/product");
+      }
+    }
+  }, [id, form, navigate]);
 
   function onSubmit(data: ProductFormValues) {
     console.log("Form submitted:", data, "Files:", files);
@@ -86,8 +112,8 @@ export default function CreateProduct() {
         >
           <section className="flex-1 p-6 md:p-10 max-w-7xl mx-auto w-full">
             <div className="flex items-center justify-between mb-8">
-              <h1 className="text-md md:text-xl lg:text-2xl font-bold tracking-tight">
-                Create New Product
+              <h1 className="text-3xl font-bold tracking-tight">
+                Update Product
               </h1>
               <div className="flex gap-4">
                 <Button
@@ -97,7 +123,7 @@ export default function CreateProduct() {
                 >
                   <Link to="/seller/product">Cancel</Link>
                 </Button>
-                <Button type="submit">Save Product</Button>
+                <Button type="submit">Update Product</Button>
               </div>
             </div>
 

@@ -9,6 +9,9 @@ const SellerProduct = lazy(() => import("@/features/seller/product"));
 const SellerCreateProduct = lazy(
   () => import("@/features/seller/product/create-product"),
 );
+const SellerUpdateProduct = lazy(
+  () => import("@/features/seller/product/update-product"),
+);
 
 const Routes = createBrowserRouter([
   {
@@ -42,6 +45,10 @@ const Routes = createBrowserRouter([
       {
         path: "product/new",
         Component: SellerCreateProduct,
+      },
+      {
+        path: "product/:id/edit",
+        Component: SellerUpdateProduct,
       },
     ],
   },

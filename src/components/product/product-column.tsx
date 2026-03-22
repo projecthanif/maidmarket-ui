@@ -59,7 +59,7 @@ export const productColumns: ColumnDef<Product>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Action" />
     ),
-    cell: () => <ProductAction />,
+    cell: ({ row }) => <ProductAction id={row.original.id} />,
   },
 ];
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,17 +10,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
 
 import {
   AlertDialog,
@@ -33,13 +23,12 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-export default function ProductAction() {
-  const [openDrawer, setOpenDrawer] = useState(false);
+export default function ProductAction({ id = "1" }: { id?: string }) {
   const [openAlert, setOpenAlert] = useState(false);
 
   return (
     <AlertDialog open={openAlert} onOpenChange={setOpenAlert}>
-      <Drawer open={openDrawer} onOpenChange={setOpenDrawer} direction="right">
+      <div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm">
@@ -48,11 +37,9 @@ export default function ProductAction() {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuGroup>
-              <DrawerTrigger asChild>
-                <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-                  Edit
-                </DropdownMenuItem>
-              </DrawerTrigger>
+              <DropdownMenuItem asChild>
+                <Link to={`/seller/product/${id}/edit`}>Edit</Link>
+              </DropdownMenuItem>
               <AlertDialogTrigger asChild>
                 <DropdownMenuItem
                   className="text-red-600 focus:text-red-600"
@@ -64,36 +51,7 @@ export default function ProductAction() {
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
-        {/*Edit Drawer*/}
-        <DrawerContent className="sm:max-w-2xl">
-          <DrawerHeader>
-            <DrawerTitle>Move Goal</DrawerTitle>
-            <DrawerDescription>Set your daily activity goal.</DrawerDescription>
-          </DrawerHeader>
-          <div className="no-scrollbar overflow-y-auto px-4">
-            {Array.from({ length: 10 }).map((_, index) => (
-              <p
-                key={index}
-                className="mb-4 leading-normal style-lyra:mb-2 style-lyra:leading-relaxed"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            ))}
-          </div>
-          <DrawerFooter>
-            <Button>Submit</Button>
-            <DrawerClose asChild>
-              <Button variant="outline">Cancel</Button>
-            </DrawerClose>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
+      </div>
       {/*// Delete Button Alert Dialog*/}
       <AlertDialogContent>
         <AlertDialogHeader>
